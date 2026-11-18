@@ -1,1 +1,3 @@
 step,images,minutes,note
+gold_manual,4,25,gán tay không AI
+batch_review,24,60,review pre-label + 12 bẫy
