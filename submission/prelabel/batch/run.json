@@ -1,0 +1,18 @@
+{
+ "run_id": "r01",
+ "part": "",
+ "model": "yoloe-s",
+ "params": "--model yoloe --split batch --device cpu --out submission/prelabel/batch",
+ "split": "batch",
+ "n_boxes": 410,
+ "sec_per_img": 0.44,
+ "what_went_right": "",
+ "what_went_wrong": "",
+ "decision": "",
+ "out": "submission\\prelabel\\batch",
+ "device": "cpu",
+ "n_images": 24,
+ "n_masks": 0,
+ "dropped": "",
+ "note": ""
+}
