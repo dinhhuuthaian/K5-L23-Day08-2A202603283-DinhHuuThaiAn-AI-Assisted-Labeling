@@ -58,14 +58,24 @@
 
 ## 7. QC và quyết định (Part 6)
 
-- Mẫu: <<n>> ảnh (<<m>> ảnh `can_review` + <<k>> ngẫu nhiên, seed 42); người kiểm: bạn (**hạn chế**: bạn vừa là người duyệt).
-- Lỗi theo **đối tượng**: <<.../... = ...%>> · theo **ảnh**: <<.../... = ...%>> (ngưỡng Release ≤ 2%)
-- Top lỗi (trong: bỏ sót, thừa, sai lớp, sai vị trí/kích thước, sai thuộc tính, sai mask) + một ảnh ví dụ mỗi loại: <<>>
-- **Giới hạn mẫu nhỏ** (cận trên 95% trong `qc_report_auto.md`): <<>>
-- Script kiểm được / không kiểm được (ví dụ ôm sát, cùng bỏ sót với máy, theo checklist thật): <<>>
+**Số đo QC (mẫu 6/24 ảnh, 92 đối tượng):**
+- Ảnh có lỗi: 1/6 = 16.7% (ngưỡng Release ≤ 2%) → không đạt.
+- Lỗi theo đối tượng: 1/92 = 1.1%.
+- Lỗi duy nhất: img_003, `sai_lop`, xe đẩy trái cây (three_wheeler) vẫn bị gán `car` trong nhãn cuối.
 
-**Quyết định: <<Release / Hold / Rework>>**, ngày <<YYYY-MM-DD>>. Lý do (đi theo Hold → Rework → Release): <<>>
-Nếu Rework / Hold, việc cần làm tiếp: <<>>
+**Số đo của máy và bẫy:**
+- Máy: accepted 454/729 = 62.3%, edited 41/729 = 5.6%, deleted 221/729 = 30.3%; added 49/544 = 9.0%.
+- Bắt bẫy: 7/12 = 58.3% lúc review đầu; 11/12 = 91.7% sau khi sửa theo `traps_key.json`. Con số đầu mới phản ánh khả năng bắt lỗi của tôi lúc review, con số sau không còn khách quan.
+
+**Giới hạn của mẫu nhỏ:** chỉ 6 ảnh. Với 1 ảnh lỗi, cận trên 95% (Wilson) của tỉ lệ ảnh lỗi thật là 56%. Mẫu này không thể chứng minh ngưỡng 2% dù có đạt hay không.
+
+**Lý do chọn Rework:** lỗi ảnh vượt 2%, và lỗi lọt đúng loại mà máy hay sai (nhầm xe ba bánh thành car). Guideline v1.0 chưa nói rõ ranh giới xe đẩy với car, nên tôi bổ sung quy tắc ở v1.1 (CAL-01).
+
+**Kế hoạch vòng 2:**
+1. Sửa nhãn img_003 trong CVAT (car → three_wheeler), rà lại các xe ba bánh còn lại trong lô.
+2. Export `submission/labels/qc_fixed.json` (chỉ các ảnh đã sửa).
+3. Chạy lại `build_release.py` và `qc_sample.py --n 5 --force`.
+4. Kết quả vòng 2: [điền sau khi chạy lại].
 
 ## 8. Ghi chú cá nhân
 

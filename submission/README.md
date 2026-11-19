@@ -1,6 +1,4 @@
-# Thư mục nộp bài
-
-Xem cấu trúc bắt buộc ở [../SUBMISSION.md](../SUBMISSION.md). Các file bạn **tự điền** (khuôn có sẵn ở đây):
+# Day 08 Lab — 2A202603283 - Đinh Hữu Thái An
 
 | File | Điền gì | Ví dụ một dòng |
 |---|---|---|
